@@ -13,13 +13,13 @@ server.listen()
 
 
 
-# initalizing empty list for both clients and their nicknamnes
+# initalizing empty lists for both clients and their nicknamnes
 clients = []
 nicks = []
 
 
 
-#broadcasting a message to all clients using simple for loop
+#broadcasting a message to all clients using a simple for loop
 def broadcast(message):
     for client in clients:
         client.send(message)
@@ -30,12 +30,12 @@ def manage_message(client):
     """
     This function manages messages for clients
 
-    I have decided to run this function in a seperate thread,
+    I have decided to run this function in a seperate thread
     for each client, to recieve and broadcast them to all the connected clients. 
     It also handles client dissonnections, and ensures the client is removed from the list 
     of connected clients.  
     
-    Param:
+    Args:
         the clients socket connection
     """
     while True:
@@ -85,5 +85,5 @@ def receiving():
         thread.start()
 
 
-print(f"Server is starting on {HOST}:{PORT}")
+print(f"Server is now starting on {HOST}:{PORT}")
 receiving()
